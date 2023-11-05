@@ -7,9 +7,9 @@ public class UserRepository {
     private final User[] users = new User[3];
 
     public UserRepository() {
-        this.users[0] = new User("admin","0192023a7bbd73250516f069df18b500");  //admin123
-        this.users[1] = new User("janusz","1e6f2ac43951a6721d3d26a379cc7f8b"); //janusz123
-        this.users[2] = new User("mateusz","8385f273189d4ebbb0a362368c81f7a6"); //mateusz123
+        this.users[0] = new User("admin","1d1080cc1bbc913340af0e9cc6e69dda");  //admin123
+        this.users[1] = new User("janusz","545ac9b6355cbbed46f7a9870f40cd3f"); //janusz123
+        this.users[2] = new User("mateusz","d2fb22406c4eb52a33ec266b55115f50"); //mateusz123
     }
 
     public User findByLogin(String login) {
