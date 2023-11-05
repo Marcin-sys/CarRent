@@ -9,11 +9,10 @@ public final class App {
     public static void main(String[] args) {
         final VehicleRepository carDatabase = new VehicleRepository();
         final Authenticator authenticator = new Authenticator();
-        final GUI gui = new GUI();
         boolean loop = false;
 
         for (int i = 0; i < 3; i++) {
-            User user = gui.readLoginData();
+            User user = GUI.readLoginData();
             boolean authResult = authenticator.authenticator(user.getLogin(), user.getPassword());
 
             if (authResult) {
@@ -27,24 +26,24 @@ public final class App {
         mainLoop:
         while (loop) {
 
-            switch (gui.showMenuAndReadChoose()) {
+            switch (GUI.showMenuAndReadChoose()) {
                 case "1":
-                    gui.printAllCars(carDatabase.getVehicles());
+                    GUI.printAllCars(carDatabase.getVehicles());
                     break;
                 case "2":
-                    gui.showResult(carDatabase.rentVehicle(gui.readPlate()));
+                    GUI.showResult(carDatabase.rentVehicle(GUI.readPlate()));
                     break;
                 case "3":
-                    gui.showResult(carDatabase.returnVehicle(gui.readPlate()));
+                    GUI.showResult(carDatabase.returnVehicle(GUI.readPlate()));
                     break;
                 case "4":
-                    gui.exitShop();
+                    GUI.exitShop();
 //                    System.exit(0);    // wychodzisz z aplikacji calkowicie
 //                    break mainLoop;  //nazywanie pętli
                     loop = false;   // albo ladnie
                     break;
                 default:
-                    gui.showWrongChoose();
+                    GUI.showWrongChoose();
                     break;
             }
         }

@@ -7,34 +7,30 @@ import java.util.Scanner;
 
 public class GUI {
 
-    private final Scanner scanner;
+    private static final Scanner scanner = new Scanner(System.in);
 
-    public GUI() {
-        this.scanner = new Scanner(System.in);
-    }
-
-    public String showMenuAndReadChoose() {
+    public static String showMenuAndReadChoose() {
         System.out.println("1. List cars");
         System.out.println("2. Rent car");
         System.out.println("3. Return car");
         System.out.println("4. Exit");
-        String input = this.scanner.nextLine();
+        String input = scanner.nextLine();
         System.out.println("What did you chose: " + input);
         return input;
     }
 
-    public void printAllCars(Vehicle[] vehicles) {
+    public static void printAllCars(Vehicle[] vehicles) {
         for (Vehicle vehicle : vehicles) {
             System.out.println(vehicle);
         }
     }
 
-    public String readPlate() {
+    public static String readPlate() {
         System.out.println("What you want to rent ? Write plate of car: ");
-        return this.scanner.nextLine();
+        return scanner.nextLine();
     }
 
-    public void showResult(boolean rentResult) {
+    public static void showResult(boolean rentResult) {
         if (rentResult) {
             System.out.println("Success !!!");
         } else {
@@ -42,19 +38,19 @@ public class GUI {
         }
     }
 
-    public void exitShop() {
+    public static void exitShop() {
         System.out.println("See you again");
     }
 
-    public void showWrongChoose() {
+    public static void showWrongChoose() {
         System.out.println("Wrong choose!!");
     }
 
-    public User readLoginData() {
+    public static User readLoginData() {
         System.out.println("Write Login: ");
-        String login = this.scanner.nextLine();
+        String login = scanner.nextLine();
         System.out.println("Write Password: ");
-        return new User(login, this.scanner.nextLine());
+        return new User(login, scanner.nextLine());
     }
 
 }
