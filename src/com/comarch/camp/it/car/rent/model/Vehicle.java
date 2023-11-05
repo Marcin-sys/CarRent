@@ -21,11 +21,22 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Brand: " + this.getBrand()+" "+"Model: " + this.getModel()+" "
-                +"Year: " + this.getYear()+
-                " "+ "Price: " + this.getPrice()+" "+"Plate: "
-                + this.getPlate()+ " "+"Not available?: " + this.isRent();
+        return new StringBuilder().append("Brand: ")
+                .append(this.getBrand())
+                .append(" Model: ")
+                .append(this.getModel())
+                .append(" Year: ")
+                .append(this.getYear())
+                .append(" Price: ")
+                .append(this.getPrice())
+                .append(" Plate: ")
+                .append(this.getPlate())
+                .append(" Not available?: ")
+                .append(this.isRent())
+                .append(" ")
+                .toString();
     }
+
 
     public Vehicle(boolean rent) {
         this.rent = rent;
