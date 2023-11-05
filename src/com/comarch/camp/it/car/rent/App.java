@@ -1,14 +1,29 @@
 package com.comarch.camp.it.car.rent;
 
+import com.comarch.camp.it.car.rent.authenticator.Authenticator;
 import com.comarch.camp.it.car.rent.db.VehicleRepository;
 import com.comarch.camp.it.car.rent.gui.GUI;
+import com.comarch.camp.it.car.rent.model.User;
 
 public class App {
     public static void main(String[] args) {
         VehicleRepository carDatabase = new VehicleRepository();
+        Authenticator authenticator = new Authenticator();
         GUI gui = new GUI();
+        boolean loop = false;
 
-        boolean loop = true;
+        for (int i = 0; i < 3; i++) {
+            User user = gui.readLoginData();
+            boolean authResult = authenticator.authenticator(user.getLogin(), user.getPassword());
+
+            if (authResult) {
+                System.out.println("Logged !!");
+                loop = true;
+                break;
+            }
+            System.out.println("Incorrect login data !!");
+        }
+
         mainLoop:
         while (loop) {
 

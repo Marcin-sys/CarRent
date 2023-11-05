@@ -1,5 +1,6 @@
 package com.comarch.camp.it.car.rent.gui;
 
+import com.comarch.camp.it.car.rent.model.User;
 import com.comarch.camp.it.car.rent.model.Vehicle;
 
 import java.util.Scanner;
@@ -8,7 +9,7 @@ public class GUI {
 
     private final Scanner scanner;
 
-    public GUI(){
+    public GUI() {
         this.scanner = new Scanner(System.in);
     }
 
@@ -45,8 +46,15 @@ public class GUI {
         System.out.println("See you again");
     }
 
-    public void showWrongChoose(){
+    public void showWrongChoose() {
         System.out.println("Wrong choose!!");
+    }
+
+    public User readLoginData() {
+        System.out.println("Write Login: ");
+        String login = this.scanner.nextLine();
+        System.out.println("Write Password: ");
+        return new User(login, this.scanner.nextLine());
     }
 
 }
