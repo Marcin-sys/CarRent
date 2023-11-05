@@ -1,12 +1,13 @@
 package com.comarch.camp.it.car.rent.gui;
 
+import com.comarch.camp.it.car.rent.authenticator.Authenticator;
+import com.comarch.camp.it.car.rent.model.LuxuryCar;
 import com.comarch.camp.it.car.rent.model.User;
 import com.comarch.camp.it.car.rent.model.Vehicle;
 
 import java.util.Scanner;
 
 public class GUI {
-
     private static final Scanner scanner = new Scanner(System.in);
 
     public static String showMenuAndReadChoose() {
@@ -21,6 +22,9 @@ public class GUI {
 
     public static void printAllCars(Vehicle[] vehicles) {
         for (Vehicle vehicle : vehicles) {
+            if (vehicle instanceof LuxuryCar && !"ADMIN".equals(Authenticator.loggedUserRole)) {
+                continue;
+            }
             System.out.println(vehicle);
         }
     }

@@ -15,6 +15,7 @@ public final class App {
             User user = GUI.readLoginData();
             boolean authResult = authenticator.authenticator(user.getLogin(), user.getPassword());
 
+
             if (authResult) {
                 System.out.println("Logged !!");
                 loop = true;
@@ -25,7 +26,6 @@ public final class App {
 
         mainLoop:
         while (loop) {
-
             switch (GUI.showMenuAndReadChoose()) {
                 case "1":
                     GUI.printAllCars(carDatabase.getVehicles());

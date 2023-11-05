@@ -1,12 +1,10 @@
 package com.comarch.camp.it.car.rent.db;
 
-import com.comarch.camp.it.car.rent.model.Bus;
-import com.comarch.camp.it.car.rent.model.Car;
-import com.comarch.camp.it.car.rent.model.Truck;
-import com.comarch.camp.it.car.rent.model.Vehicle;
+import com.comarch.camp.it.car.rent.authenticator.Authenticator;
+import com.comarch.camp.it.car.rent.model.*;
 
 public class VehicleRepository {
-    private final Vehicle[] vehicles = new Vehicle[9];
+    private final Vehicle[] vehicles = new Vehicle[11];
 
     public VehicleRepository() {
         this.vehicles[0] = new Car("BMW", "5",
@@ -27,10 +25,18 @@ public class VehicleRepository {
                 2021, 12.5, "KR88",23);
         this.vehicles[8] = new Truck("Audi", "5",
                 2021, 12.5, "KR99",1500);
+        this.vehicles[9] = new LuxuryCar("Porshe", "5",
+                2021, 12.5, "KR10");
+        this.vehicles[10] = new LuxuryCar("Bentley", "5",
+                2021, 12.5, "KR00");
     }
 
     public boolean rentVehicle(String plate) {
         Vehicle vehicle = findVehicle(plate);
+        if (vehicle instanceof LuxuryCar
+                && !"ADMIN".equals(Authenticator.loggedUserRole)){
+            return false;
+        }
         if (vehicle != null && !vehicle.isRent()) {
             vehicle.setRent(true);
             return true;
@@ -40,6 +46,10 @@ public class VehicleRepository {
 
     public boolean returnVehicle(String plate) {
         Vehicle vehicle = findVehicle(plate);
+        if (vehicle instanceof LuxuryCar
+                && !"ADMIN".equals(Authenticator.loggedUserRole)){
+            return false;
+        }
         if (vehicle != null && vehicle.isRent()) {   // & mozna uzyc zeby sie zrobily oba zapytania
             vehicle.setRent(false);
             return true;
