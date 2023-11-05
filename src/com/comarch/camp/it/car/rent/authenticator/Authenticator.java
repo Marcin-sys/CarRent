@@ -6,7 +6,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 public class Authenticator {
 
-    final private String seed = "hq_6#%r8rPJ)zoZaIvV6X@HqMVaz;C7wNM39Rl]{hCE!YF]8Xo";
+    private final String seed = "hq_6#%r8rPJ)zoZaIvV6X@HqMVaz;C7wNM39Rl]{hCE!YF]8Xo";
 
     private final UserRepository userRepository = new UserRepository();
 

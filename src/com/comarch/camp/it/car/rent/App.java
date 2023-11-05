@@ -5,11 +5,11 @@ import com.comarch.camp.it.car.rent.db.VehicleRepository;
 import com.comarch.camp.it.car.rent.gui.GUI;
 import com.comarch.camp.it.car.rent.model.User;
 
-public class App {
+public final class App {
     public static void main(String[] args) {
-        VehicleRepository carDatabase = new VehicleRepository();
-        Authenticator authenticator = new Authenticator();
-        GUI gui = new GUI();
+        final VehicleRepository carDatabase = new VehicleRepository();
+        final Authenticator authenticator = new Authenticator();
+        final GUI gui = new GUI();
         boolean loop = false;
 
         for (int i = 0; i < 3; i++) {
