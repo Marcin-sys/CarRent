@@ -28,7 +28,7 @@ public final class App {
         while (loop) {
             switch (GUI.showMenuAndReadChoose()) {
                 case "1":
-                    GUI.printAllCars(carDatabase.getVehicles());
+                    GUI.printVehicle(carDatabase.getVehicles());
                     break;
                 case "2":
                     GUI.showResult(carDatabase.rentVehicle(GUI.readPlate()));

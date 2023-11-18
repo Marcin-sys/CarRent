@@ -5,6 +5,7 @@ import com.comarch.camp.it.car.rent.model.LuxuryCar;
 import com.comarch.camp.it.car.rent.model.User;
 import com.comarch.camp.it.car.rent.model.Vehicle;
 
+import java.util.Collection;
 import java.util.Scanner;
 
 public class GUI {
@@ -20,7 +21,7 @@ public class GUI {
         return input;
     }
 
-    public static void printAllCars(Vehicle[] vehicles) {
+    public static void printVehicle(Collection<Vehicle> vehicles) {
         for (Vehicle vehicle : vehicles) {
             if (vehicle instanceof LuxuryCar && !"ADMIN".equals(Authenticator.loggedUserRole)) {
                 continue;
